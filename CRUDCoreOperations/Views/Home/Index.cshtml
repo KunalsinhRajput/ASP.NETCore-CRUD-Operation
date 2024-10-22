@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bootstrap Table Example</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2>Employee Table</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>EID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Mobile No</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <th scope="row">@r.Eid</th>
+                        <td>@r.Ename</td>
+                        <td>@r.Eaddress</td>
+                        <td>@r.MobileNo</td>
+                        <td>
+                            <a href="Home/Edit/@r.Eid">Edit </a>|
+                            <a href="Home/Delete/@r.Eid">Delete</a>|
+                            <a href="Home/Details/@r.Eid">Details</a>
+
+                        </td>
+                    </tr>
+
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
