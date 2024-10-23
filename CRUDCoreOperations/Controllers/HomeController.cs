@@ -14,7 +14,7 @@ namespace CRUDCoreOperations.Controllers
             this.e1 = e1;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
             var t = e1.Emps.ToList();
             return View(t);
@@ -63,10 +63,11 @@ namespace CRUDCoreOperations.Controllers
             return View(t);
         }
         [HttpPost]
-        public IActionResult Edit(int id, string Ename, string Eaddress, string MobileNo)
+        public IActionResult Edit(int Eid, string Ename, string Eaddress, string MobileNo)
         {
-            var t = e1.Emps.Where(x => x.Eid == id).FirstOrDefault();
+           
             Emp e2 = new Emp();
+            e2.Eid = Eid;
             e2.Ename = Ename;
             e2.Eaddress = Eaddress;
             e2.MobileNo = MobileNo;
